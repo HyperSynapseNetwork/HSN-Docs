@@ -1,0 +1,83 @@
+/* =========================================================================
+   HyperSynapse Network — Custom CSS
+   - Hero logo: colored neon edge glow + tilt
+   - Navbar logo: subtle glow
+   - Navbar: glassmorphism (frosted glass)
+   ========================================================================= */
+
+/* ── Glassmorphism header ──────────────────────────────────────── *
+ * Make the nav bar background semi-transparent and blur the content
+ * behind it. The backdrop-filter lives on .VPNav (the fixed wrapper)
+ * so it blurs page content that scrolls underneath.
+ * ---------------------------------------------------------------- */
+
+/* Semi-transparent nav background (override VitePress's solid default) */
+:root {
+  --vp-nav-bg-color: rgba(255, 255, 255, 0.65);
+}
+
+.dark {
+  --vp-nav-bg-color: rgba(35, 35, 40, 0.65);
+}
+
+/* Blur everything behind the nav bar */
+.VPNav {
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+}
+
+/* ── Home hero logo: colored edge glow + tilt ─────────────────────── */
+/* Rotate the container so flex layout sees the rotated bounding box.
+   No more visual misalignment. */
+.VPHomeHero .image-container {
+  transform: rotate(-3deg);
+  overflow: visible;           /* let glow escape the container */
+}
+
+.VPHomeHero .image-container .VPImage {
+  animation: heroGlow 4s ease-in-out infinite alternate;
+  /* override VitePress's default max-width if any — keep image contained */
+  max-width: 100%;
+  height: auto;
+}
+
+@keyframes heroGlow {
+  0% {
+    filter:
+      drop-shadow(0 0 12px rgba(0, 200, 255, 0.5))
+      drop-shadow(0 0 30px rgba(0, 120, 255, 0.35))
+      drop-shadow(0 0 60px rgba(180, 0, 255, 0.2));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 18px rgba(0, 220, 255, 0.6))
+      drop-shadow(0 0 45px rgba(120, 0, 255, 0.4))
+      drop-shadow(0 0 80px rgba(255, 0, 180, 0.2));
+  }
+  100% {
+    filter:
+      drop-shadow(0 0 12px rgba(0, 200, 255, 0.5))
+      drop-shadow(0 0 30px rgba(0, 120, 255, 0.35))
+      drop-shadow(0 0 60px rgba(180, 0, 255, 0.2));
+  }
+}
+
+/* ── Navbar logo: subtle static glow ──────────────────────────────── */
+.VPNavBar .VPNavBarLogo img {
+  filter:
+    drop-shadow(0 0 6px rgba(0, 200, 255, 0.25))
+    drop-shadow(0 0 14px rgba(120, 0, 255, 0.15));
+  transition: filter 0.3s ease;
+}
+
+.VPNavBar .VPNavBarLogo img:hover {
+  filter:
+    drop-shadow(0 0 10px rgba(0, 200, 255, 0.4))
+    drop-shadow(0 0 24px rgba(180, 0, 255, 0.25));
+}
+
+/* ── Sidebar / small logo contexts: keep clean ────────────────────── */
+.VPSidebar img,
+.VPSidebar .VPImage {
+  filter: none !important;
+}

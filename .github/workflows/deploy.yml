@@ -1,0 +1,64 @@
+# =============================================================================
+# Deploy to self-hosted server via Rsync over SSH
+# =============================================================================
+# Required repository secrets:
+#   DEPLOY_SSH_KEY   — private SSH key for the deploy user on the server
+#   SERVER_HOST      — hostname or IP of the target server
+#   SERVER_USER      — SSH user on the target server
+#
+# The deploy destination is:  /var/www/hypersynapse-docs
+# Override via the repository variable DEPLOY_TARGET_PATH.
+#
+# Trigger: push to main branch
+# =============================================================================
+
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DEPLOY_BASE_PATH: /var/www/hypersynapse-docs
+
+jobs:
+  build-and-deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0     # required for git history → git-info
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build    # prebuild auto-runs git-info.mjs + generate-sidebar.mjs
+
+      - name: Deploy via Rsync over SSH
+        uses: easingthemes/ssh-deploy@v4
+        with:
+          SSH_PRIVATE_KEY:     ${{ secrets.DEPLOY_SSH_KEY }}
+          REMOTE_HOST:         ${{ secrets.SERVER_HOST }}
+          REMOTE_USER:         ${{ secrets.SERVER_USER }}
+          SOURCE:              .vitepress/dist/
+          TARGET:              ${{ vars.DEPLOY_TARGET_PATH || env.DEPLOY_BASE_PATH }}
+          ARGS:                -avz --delete --exclude='.git'
+          SCRIPT_BEFORE: |
+            whoami
+          SCRIPT_AFTER: |
+            echo "✅ Deployed to ${{ vars.DEPLOY_TARGET_PATH || env.DEPLOY_BASE_PATH }}"
