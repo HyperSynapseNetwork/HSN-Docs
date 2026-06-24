@@ -57,7 +57,7 @@ jobs:
           REMOTE_USER:         ${{ secrets.SERVER_USER }}
           SOURCE:              .vitepress/dist/
           TARGET:              ${{ vars.DEPLOY_TARGET_PATH || env.DEPLOY_BASE_PATH }}
-          ARGS:                -avz --delete --exclude='.git'
+          ARGS:                -avz --delete --exclude='.git' --exclude='.user.ini'
           SCRIPT_BEFORE: |
             whoami
           SCRIPT_AFTER: |
