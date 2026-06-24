@@ -96,7 +96,7 @@ export default defineConfig({
 
   // ── Sitemap ────────────────────────────────────────────────────
   sitemap: {
-    hostname: 'https://docs.htadiy.com',
+    hostname: 'https://docs.phira.htadiy.com',
   },
 
   lastUpdated: false, // we use our own GitMeta component instead
