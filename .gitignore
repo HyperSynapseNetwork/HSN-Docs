@@ -4,3 +4,4 @@ node_modules
 .DS_Store
 *.local
 pnpm-lock.yaml
+guide/v2/HSNBot/
