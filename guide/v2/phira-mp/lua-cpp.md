@@ -236,7 +236,7 @@ The server comes with 5 built-in plugins:
 ### Plugin Development / 插件开发
 Plugins are written in Lua and have access to the server through the `phira` global table.
 
-**For complete plugin development documentation, see [PLUGIN_DEVELOPMENT.md](PLUGIN_DEVELOPMENT.md)**
+**For complete plugin development documentation, see [PLUGIN_DEVELOPMENT.md](https://github.com/HyperSynapseNetwork/phira-mp/blob/main/PLUGIN_DEVELOPMENT.md)**
 
 The plugin system provides:
 - **40+ Server Management APIs** - Full control over users, rooms, messages, bans, contests, and server state
@@ -289,7 +289,7 @@ phira.disable_contest(room_id)
 phira.start_contest(room_id, force)
 ```
 
-See the complete API reference in [PLUGIN_DEVELOPMENT.md](PLUGIN_DEVELOPMENT.md) for detailed documentation and examples.
+See the complete API reference in [PLUGIN_DEVELOPMENT.md](https://github.com/HyperSynapseNetwork/phira-mp/blob/main/PLUGIN_DEVELOPMENT.md) for detailed documentation and examples.
 
 ## 🌐 HTTP API Reference / HTTP接口文档
 
@@ -575,7 +575,7 @@ For production, redirect logs to a file:
 
 ## 📄 License / 许可证
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/HyperSynapseNetwork/phira-mp/blob/main/LICENSE) file for details.
 
 ```
 MIT License

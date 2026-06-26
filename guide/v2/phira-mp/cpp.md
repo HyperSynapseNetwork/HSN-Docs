@@ -86,7 +86,7 @@ make -j$(nproc)
 
 ## 下载
 
-你可以前往本项目的[Github Actions](../../actions)，下载已编译好可直接运行的 `exe` 和启动脚本。（输入./start.sh即可运行）。
+你可以前往本项目的 [GitHub Actions](https://github.com/HyperSynapseNetwork/cpp-phira-mp/actions)，下载已编译好可直接运行的 `exe` 和启动脚本。（输入 `./start.sh` 即可运行）。
 
 
 ---

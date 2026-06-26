@@ -539,6 +539,7 @@ server {
 
 ## 效果
 可以前往 [HSNPhira官网](https://phira.htadiy.com/) 查看部署效果
+![部署完成后的首页](https://github.com/HyperSynapseNetwork/HSNPhira/blob/frontend-remake/images/deploy-result.jpg?raw=true)
 
 ## 许可证
 
