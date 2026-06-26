@@ -22,6 +22,8 @@ const OUT_FILE = resolve(CACHE_DIR, 'sidebar.json')
 const LOCALES = [
   { dir: 'guide', prefix: '/guide/', label: '指南' },
   { dir: 'en/guide', prefix: '/en/guide/', label: 'Guides' },
+  { dir: 'zh-tw/guide', prefix: '/zh-tw/guide/', label: '指南' },
+  { dir: 'ja/guide', prefix: '/ja/guide/', label: 'ガイド' },
 ]
 
 // Override auto-capitalised directory names with custom display labels.

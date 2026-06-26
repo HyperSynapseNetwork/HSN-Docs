@@ -25,10 +25,14 @@ try {
 
 const zhSidebar = sidebarData['/guide/'] ? { '/guide/': sidebarData['/guide/'] } : {}
 const enSidebar = sidebarData['/en/guide/'] ? { '/en/guide/': sidebarData['/en/guide/'] } : {}
+const zhTwSidebar = sidebarData['/zh-tw/guide/'] ? { '/zh-tw/guide/': sidebarData['/zh-tw/guide/'] } : {}
+const jaSidebar = sidebarData['/ja/guide/'] ? { '/ja/guide/': sidebarData['/ja/guide/'] } : {}
 
 // ── Nav ─────────────────────────────────────────────────────────────
 const zhNav = [{ text: '文档总览', link: '/guide/other-docs/getting-started', activeMatch: '/guide/' }]
 const enNav = [{ text: 'Docs', link: '/en/guide/other-docs/getting-started', activeMatch: '/en/' }]
+const zhTwNav = [{ text: '文件總覽', link: '/zh-tw/guide/other-docs/getting-started', activeMatch: '/zh-tw/' }]
+const jaNav = [{ text: 'ドキュメント', link: '/ja/guide/other-docs/getting-started', activeMatch: '/ja/' }]
 
 // ── VitePress config ──────────────────────────────────────────────
 export default defineConfig({
@@ -79,6 +83,26 @@ export default defineConfig({
       themeConfig: {
         nav: enNav,
         sidebar: enSidebar,
+      },
+    },
+    'zh-tw': {
+      label: '繁體中文',
+      lang: 'zh-TW',
+      title: 'HyperSynapse Network Docs',
+      description: 'HyperSynapse Network 技術文檔',
+      themeConfig: {
+        nav: zhTwNav,
+        sidebar: zhTwSidebar,
+      },
+    },
+    ja: {
+      label: '日本語',
+      lang: 'ja',
+      title: 'HyperSynapse Network Docs',
+      description: 'HyperSynapse Network 技術文書',
+      themeConfig: {
+        nav: jaNav,
+        sidebar: jaSidebar,
       },
     },
   },
