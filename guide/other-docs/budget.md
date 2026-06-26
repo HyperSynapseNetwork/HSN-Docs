@@ -2,7 +2,7 @@
 order: 1
 ---
 
-## HyperSynapse Network 2026年度预算报表与捐款渠道
+# HyperSynapse Network 2026年度预算报表与捐款渠道
 
 ## HyperSynapse Network Phira 2026年度预算报表与捐款渠道
 
