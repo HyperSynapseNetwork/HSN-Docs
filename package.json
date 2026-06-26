@@ -9,7 +9,8 @@
     "preview": "vitepress preview",
     "git-info": "node scripts/git-info.mjs",
     "generate-sidebar": "node scripts/generate-sidebar.mjs",
-    "prebuild": "node scripts/git-info.mjs && node scripts/generate-sidebar.mjs"
+    "download-avatars": "node scripts/download-avatars.mjs",
+    "prebuild": "node scripts/git-info.mjs && node scripts/generate-sidebar.mjs && node scripts/download-avatars.mjs"
   },
   "devDependencies": {
     "vitepress": "^1.6.3",

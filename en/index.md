@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: "HyperSynapse Network"
-  text: "Documentation"
-  tagline: Build, Connect, Scale
+  text: "Technical Documentation"
+  tagline: Where HSN Stores Its Docs
   image:
     src: /logo.svg
     alt: HyperSynapse Network
@@ -18,15 +18,15 @@ hero:
 
 features:
   - icon: ⚡
-    title: High-Performance Networking
-    details: Low-latency, high-throughput synapse connections.
+    title: HSN Navigation Super Fast
+    details: Thanks to the ultra-fast direct connections via Hong Kong's three major ISPs, HSN navigation is blazing fast.
   - icon: '?'
-    title: TBD
-    details: TBD
+    title: '[TBD]'
+    details: '[TBD]'
   - icon: '?'
-    title: TBD
-    details: TBD
+    title: '[TBD]'
+    details: '[TBD]'
   - icon: '?'
-    title: TBD
-    details: TBD
+    title: '[TBD]'
+    details: '[TBD]'
 ---

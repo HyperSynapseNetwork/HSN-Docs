@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "HyperSynapse Network"
   text: "技術文書"
-  tagline: HSNドキュメントサイト
+  tagline: HSNが文書を保管する場所
   image:
     src: /logo.svg
     alt: HyperSynapse Network
@@ -18,15 +18,15 @@ hero:
 
 features:
   - icon: ⚡
-    title: 高速ネットワーキング
-    details: 低遅延・高スループットのシナプス接続。
+    title: HSN のナビゲーションは超高速
+    details: 香港の3つのネットワークによる超高速ダイレクト接続のおかげで、HSN のナビゲーションは超高速です。
   - icon: '?'
-    title: TBD
-    details: TBD
+    title: '[未定]'
+    details: '[未定]'
   - icon: '?'
-    title: TBD
-    details: TBD
+    title: '[未定]'
+    details: '[未定]'
   - icon: '?'
-    title: TBD
-    details: TBD
+    title: '[未定]'
+    details: '[未定]'
 ---
