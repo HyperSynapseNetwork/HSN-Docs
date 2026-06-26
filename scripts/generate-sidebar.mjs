@@ -36,6 +36,7 @@ const GROUP_RENAMES = {
 // Same for sub-groups (second directory level, e.g. v2/phira-mp/ → "Phira-mp").
 const SUBGROUP_RENAMES = {
   'phira-mp': 'Phira-mp',
+  'phira-mp-plus': 'Phira-mp +',
 }
 
 mkdirSync(CACHE_DIR, { recursive: true })
