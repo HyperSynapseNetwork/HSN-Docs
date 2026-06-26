@@ -1,4 +1,4 @@
-# ✨cpp-phira-mp✨
+# cpp-phira-mp
 
 ✨基于 [phira-mp](https://github.com/TeamFlos/phira-mp) 重新开发的C++版phira-mp，新增 Web 后台管理、REST API、SSE 实时事件、封禁系统、适配观战系统和连接欢迎信息。✨
 
