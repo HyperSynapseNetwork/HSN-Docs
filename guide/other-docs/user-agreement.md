@@ -2,7 +2,7 @@
 order: 3
 ---
 
-## HyperSynapse Network Phira 多人游戏服务器免责协议
+# HyperSynapse Network Phira 多人游戏服务器免责协议
 
 **生效日期**：用户注册账号之日起生效
 **最后更新**：2026年02月26日
