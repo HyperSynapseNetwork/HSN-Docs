@@ -48,6 +48,7 @@ cargo build
 - [CLI Command Reference](/en/guide/v3/phira-mp-plus/cli) — Startup arguments and interactive commands
 - [API Documentation](/en/guide/v3/phira-mp-plus/api) — HTTP API and SSE endpoints
 - [WASM Plugin Development](/en/guide/v3/phira-mp-plus/plugin-dev) — Plugin development guide
+- [Project Structure & Configuration](/en/guide/v3/phira-mp-plus/readme) — Project structure, terminal compatibility, config reference
 
 ## License
 

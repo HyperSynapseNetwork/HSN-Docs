@@ -45,9 +45,10 @@ cargo build
 
 ## 文件
 
-- [CLI 命令參考](/guide/v3/phira-mp-plus/cli) — 啟動參數與互動式命令
-- [API 文件](/guide/v3/phira-mp-plus/api) — HTTP API 與 SSE 端點
-- [WASM 插件開發](/guide/v3/phira-mp-plus/plugin-dev) — 插件開發指南
+- [CLI 命令參考](/zh-tw/guide/v3/phira-mp-plus/cli) — 啟動參數與互動式命令
+- [API 文件](/zh-tw/guide/v3/phira-mp-plus/api) — HTTP API 與 SSE 端點
+- [WASM 插件開發](/zh-tw/guide/v3/phira-mp-plus/plugin-dev) — 插件開發指南
+- [項目結構與配置](/zh-tw/guide/v3/phira-mp-plus/readme) — 項目結構、終端相容性、配置參考
 
 ## 許可
 

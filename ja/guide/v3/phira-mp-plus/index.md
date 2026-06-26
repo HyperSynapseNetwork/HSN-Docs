@@ -45,9 +45,10 @@ cargo build
 
 ## ドキュメント
 
-- [CLI コマンドリファレンス](/guide/v3/phira-mp-plus/cli) — 起動パラメータと対話型コマンド
-- [API ドキュメント](/guide/v3/phira-mp-plus/api) — HTTP API と SSE エンドポイント
-- [WASM プラグイン開発](/guide/v3/phira-mp-plus/plugin-dev) — プラグイン開発ガイド
+- [CLI コマンドリファレンス](/ja/guide/v3/phira-mp-plus/cli) — 起動パラメータと対話型コマンド
+- [API ドキュメント](/ja/guide/v3/phira-mp-plus/api) — HTTP API と SSE エンドポイント
+- [WASM プラグイン開発](/ja/guide/v3/phira-mp-plus/plugin-dev) — プラグイン開発ガイド
+- [プロジェクト構造と設定](/ja/guide/v3/phira-mp-plus/readme) — プロジェクト構造、端末互換性、設定リファレンス
 
 ## ライセンス
 
