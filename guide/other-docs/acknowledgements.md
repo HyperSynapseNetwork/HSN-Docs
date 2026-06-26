@@ -1,4 +1,8 @@
-# 致谢
+---
+order: 6
+---
+
+## 致谢
 
 感谢所有支持HyperSynapseNetwork/超弦网络的用户
 
