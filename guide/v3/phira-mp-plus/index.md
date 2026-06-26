@@ -1,6 +1,6 @@
 # Phira-mp +
 
-[![License](https://img.shields.io/badge/License-AGPLv3-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-AGPLv3-blue.svg)](#许可证)
 
 ## 简介
 
@@ -177,7 +177,7 @@ curl -N http://127.0.0.1:12347/rooms/listen
 
 ## CLI 命令
 
-详细文档见 [docs/cli.md](docs/cli.md)。快速概览：
+详细文档见 [cli.md](cli.md)。快速概览：
 
 | 分组 | 命令 | 说明 |
 |------|------|------|
@@ -190,7 +190,7 @@ curl -N http://127.0.0.1:12347/rooms/listen
 
 ## WASM 插件开发
 
-详细文档见 [docs/plugin-dev.md](docs/plugin-dev.md)。
+详细文档见 [plugin-dev.md](plugin-dev.md)。
 
 WASM 插件通过 `phira:host/api` 和 `phira:host/log` 等导入函数与宿主通信。
 
@@ -208,7 +208,7 @@ WASM 插件通过 `phira:host/api` 和 `phira:host/log` 等导入函数与宿主
 |--------|------|--------|------|
 | `port` | u16 | `12346` | TCP 监听端口 |
 | `http_port` | u16 | `12347` | HTTP/SSE 服务端口 |
-| `monitors` | Vec<i32> | `[2]` | 允许旁观的用户 ID |
+| `monitors` | `Vec<i32>` | `[2]` | 允许旁观的用户 ID |
 | `phira_api_endpoint` | String | `https://phira.5wyxi.com` | Phira API 端点 |
 | `plugins_dir` | String | `plugins` | 插件目录 |
 | `chat_enabled` | bool | `true` | 聊天功能开关 |
@@ -221,7 +221,7 @@ WASM 插件通过 `phira:host/api` 和 `phira:host/log` 等导入函数与宿主
 
 ## 许可证
 
-AGPLv3 — 详见 [LICENSE](LICENSE)。
+AGPLv3 — 详见 [LICENSE](https://www.gnu.org/licenses/agpl-3.0.html)。
 
 ## 致谢
 
