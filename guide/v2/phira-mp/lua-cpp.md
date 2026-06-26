@@ -1,6 +1,6 @@
-#Lua/Cpp Phira-mp已停止维护,请移步至[Phira-mp-plus](https://github.com/HyperSynapseNetwork/Phira-mp-plus/)
+Lua/Cpp Phira-mp已停止维护,请移步至[Phira-mp-plus](https://github.com/HyperSynapseNetwork/Phira-mp-plus/)
 
-# phira-mp-server (C++20 Implementation)
+# Lua/Cpp Phira-mp
 
 A complete, feature-rich multiplayer game server implementation in C++20, providing full compatibility with the phira-mp protocol and extending it with a powerful Lua plugin system and RESTful HTTP API.
 
