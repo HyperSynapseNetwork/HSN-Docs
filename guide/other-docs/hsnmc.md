@@ -1,4 +1,8 @@
-# HyperSynapseNetwork MC互通服务器
+---
+order: 2
+---
+
+## HyperSynapseNetwork MC互通服务器
 
 服务器 IP: play.simpfun.cn · 端口: 17659
 
