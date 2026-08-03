@@ -1,3 +1,6 @@
+---
+order: 6
+---
 # Phira-mp+ 插件开发指南
 
 > 完整 API 参考和 Capability 映射表请查看 [对外 API 文档](api.md)（含插件 API 与能力表，自动生成）。

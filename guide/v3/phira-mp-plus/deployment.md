@@ -1,3 +1,6 @@
+---
+order: 3
+---
 # Phira-mp+ 部署与运维
 
 本文档涵盖 PMP 的环境配置、`server_config.yml` 配置说明、备份/恢复、升级/回滚、容量规划与排障。配置的 JSON Schema 见 [`operations/config-schema.json`](operations/config-schema.json)。

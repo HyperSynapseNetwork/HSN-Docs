@@ -1,3 +1,6 @@
+---
+order: 1
+---
 # Phira-mp+
 
 ![Phira-mp+ banner](docs/logo/phira-mp-plus-banner.png)

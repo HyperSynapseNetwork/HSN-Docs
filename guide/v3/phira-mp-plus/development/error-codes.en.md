@@ -1,3 +1,6 @@
+---
+order: 9
+---
 # Error Codes & CLI Reference
 
 ## Exit Codes
