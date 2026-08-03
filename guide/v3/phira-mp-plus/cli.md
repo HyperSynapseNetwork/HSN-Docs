@@ -18,7 +18,7 @@ phira-mp-plus-server [OPTIONS]
   -V, --version              显示版本号
 ```
 
-配置加载规则：默认读取 `server_config.yml`，也可通过 `--config <FILE>` 指定；只有显式提供的命令行参数才覆盖 YAML。配置文件存在但解析或校验失败时服务端拒绝启动。`RUST_LOG`、`NO_COLOR` 等环境变量只影响日志或终端显示。完整配置说明见 [deployment.md](deployment.html)。
+配置加载规则：默认读取 `server_config.yml`，也可通过 `--config &lt;FILE&gt;` 指定；只有显式提供的命令行参数才覆盖 YAML。配置文件存在但解析或校验失败时服务端拒绝启动。`RUST_LOG`、`NO_COLOR` 等环境变量只影响日志或终端显示。完整配置说明见 [deployment.md](deployment.md)。
 
 ## 交互式管理控制台
 
@@ -155,7 +155,7 @@ help groups
 
 ---
 
-### `room set <room_id> <field> <value>`
+### `room set <room_id> &lt;field&gt; &lt;value&gt;`
 
 修改房间设置。
 
@@ -401,7 +401,7 @@ help groups
 
 ## 广播
 
-### `broadcast all <message>`
+### `broadcast all &lt;message&gt;`
 
 向所有已连接用户发送消息。
 
@@ -413,7 +413,7 @@ help groups
 
 ---
 
-### `broadcast room <room_id> <message>`
+### `broadcast room <room_id> &lt;message&gt;`
 
 向指定房间内所有用户发送消息。
 
@@ -426,7 +426,7 @@ help groups
 
 ---
 
-### `broadcast user <user_id> <message>`
+### `broadcast user <user_id> &lt;message&gt;`
 
 向指定用户发送私信。
 
@@ -449,7 +449,7 @@ help groups
 
 ---
 
-### `admin-id add <PhiraID>`
+### `admin-id add &lt;PhiraID&gt;`
 
 添加管理员。
 
@@ -457,11 +457,11 @@ help groups
 |------|------|------|
 | `PhiraID` | `int` | Phira 用户 ID |
 
-**输出:** `Added admin <PhiraID>`
+**输出:** `Added admin &lt;PhiraID&gt;`
 
 ---
 
-### `admin-id remove <PhiraID>`
+### `admin-id remove &lt;PhiraID&gt;`
 
 移除管理员。
 
@@ -469,7 +469,7 @@ help groups
 |------|------|------|
 | `PhiraID` | `int` | Phira 用户 ID |
 
-**输出:** `Removed admin <PhiraID>`
+**输出:** `Removed admin &lt;PhiraID&gt;`
 
 ---
 
@@ -498,7 +498,7 @@ help groups
 
 ---
 
-### `plugin enable <name>`
+### `plugin enable &lt;name&gt;`
 
 启用插件。
 
@@ -506,11 +506,11 @@ help groups
 |------|------|------|
 | `name` | `str` | 插件名 |
 
-**输出:** `Enabled plugin <name>`
+**输出:** `Enabled plugin &lt;name&gt;`
 
 ---
 
-### `plugin disable <name>`
+### `plugin disable &lt;name&gt;`
 
 禁用插件。
 
@@ -518,7 +518,7 @@ help groups
 |------|------|------|
 | `name` | `str` | 插件名 |
 
-**输出:** `Disabled plugin <name>`
+**输出:** `Disabled plugin &lt;name&gt;`
 
 ---
 
@@ -542,7 +542,7 @@ help groups
 
 ---
 
-### `plugin call <id_or_name> <method> [JSON_ARRAY]`
+### `plugin call <id_or_name> &lt;method&gt; [JSON_ARRAY]`
 
 调用插件导出 API。
 
@@ -556,7 +556,7 @@ help groups
 
 ---
 
-### `plugin remove <name>`
+### `plugin remove &lt;name&gt;`
 
 卸载插件。
 
@@ -564,7 +564,7 @@ help groups
 |------|------|------|
 | `name` | `str` | 插件名 |
 
-**输出:** `Removed plugin <name>` 或错误信息
+**输出:** `Removed plugin &lt;name&gt;` 或错误信息
 
 ---
 
@@ -703,13 +703,13 @@ help groups
 
 ---
 
-### `extension get <target> <key>`
+### `extension get &lt;target&gt; &lt;key&gt;`
 
 获取扩展数据。
 
 | 参数 | 类型 | 说明 |
 |------|------|------|
-| `target` | `str` | `user:<id>` 或 `room:<id>` 格式 |
+| `target` | `str` | `user:&lt;id&gt;` 或 `room:&lt;id&gt;` 格式 |
 | `key` | `str` | 字段键名 |
 
 **输出:** 扩展数据的 JSON 值，或 `Field not found`

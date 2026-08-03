@@ -162,7 +162,7 @@ Make an outbound HTTP request (sandboxed by WasmRuntimeConfig).
 - `url`: `string`
 - `method`: `string`
 - `headers`: `list<tuple<string, string>>`
-- `body`: `list<u8>`
+- `body`: `list&lt;u8&gt;`
 
 **返回值**: `result<http-response, string>`
 
@@ -303,7 +303,7 @@ Create an empty persistent room with optional endpoint override.
 
 **参数**:
 - `room-id`: `string`
-- `endpoint`: `option<string>`
+- `endpoint`: `option&lt;string&gt;`
 
 **返回值**: `api-result`
 
@@ -339,7 +339,7 @@ Set room host (none = system ? host).
 
 **参数**:
 - `room-id`: `string`
-- `target-id`: `option<u32>`
+- `target-id`: `option&lt;u32&gt;`
 
 **返回值**: `api-result`
 
@@ -386,7 +386,7 @@ Set room-level phira_api_endpoint override.
 
 **参数**:
 - `room-id`: `string`
-- `endpoint`: `option<string>`
+- `endpoint`: `option&lt;string&gt;`
 
 **返回值**: `api-result`
 
@@ -506,9 +506,9 @@ Query sequential events since a sequence number.
 **参数**:
 - `since-sequence`: `u64`
 - `limit`: `u32`
-- `kind`: `option<string>`
-- `room-id`: `option<string>`
-- `user-id`: `option<u32>`
+- `kind`: `option&lt;string&gt;`
+- `room-id`: `option&lt;string&gt;`
+- `user-id`: `option&lt;u32&gt;`
 
 **返回值**: `api-result`
 
@@ -533,8 +533,8 @@ Query touch batches.
 **参数**:
 - `since-sequence`: `u64`
 - `limit`: `u32`
-- `round-uuid`: `option<string>`
-- `player-id`: `option<u32>`
+- `round-uuid`: `option&lt;string&gt;`
+- `player-id`: `option&lt;u32&gt;`
 
 **返回值**: `api-result`
 
@@ -547,8 +547,8 @@ Query judge batches.
 **参数**:
 - `since-sequence`: `u64`
 - `limit`: `u32`
-- `round-uuid`: `option<string>`
-- `player-id`: `option<u32>`
+- `round-uuid`: `option&lt;string&gt;`
+- `player-id`: `option&lt;u32&gt;`
 
 **返回值**: `api-result`
 
@@ -630,7 +630,7 @@ Remove an admin Phira ID.
 Set the full admin ID list.
 
 **参数**:
-- `ids`: `list<u32>`
+- `ids`: `list&lt;u32&gt;`
 
 **返回值**: `api-result`
 
@@ -707,9 +707,9 @@ Non-realtime timer for plugin-internal scheduling. Cryptographic operations (hos
 The private key never leaves the host process.
 
 **参数**:
-- `payload`: `list<u8>`
+- `payload`: `list&lt;u8&gt;`
 
-**返回值**: `result<list<u8>, string>`
+**返回值**: `result<list&lt;u8&gt;, string>`
 
 **所需 Capability**: `crypto`
 
@@ -718,9 +718,9 @@ The private key never leaves the host process.
 Verify a signature against a public key.
 
 **参数**:
-- `pubkey`: `list<u8>`
-- `payload`: `list<u8>`
-- `signature`: `list<u8>`
+- `pubkey`: `list&lt;u8&gt;`
+- `payload`: `list&lt;u8&gt;`
+- `signature`: `list&lt;u8&gt;`
 
 **返回值**: `result<bool, string>`
 
@@ -731,9 +731,9 @@ Verify a signature against a public key.
 SHA-256 hash of arbitrary data.
 
 **参数**:
-- `data`: `list<u8>`
+- `data`: `list&lt;u8&gt;`
 
-**返回值**: `result<list<u8>, string>`
+**返回值**: `result<list&lt;u8&gt;, string>`
 
 **所需 Capability**: `crypto`
 
@@ -744,7 +744,7 @@ Get the server's node public key (for peer verification).
 **参数**:
 （无）
 
-**返回值**: `result<list<u8>, string>`
+**返回值**: `result<list&lt;u8&gt;, string>`
 
 **所需 Capability**: （无 — 公开 API）
 
@@ -807,7 +807,7 @@ Send raw bytes on an established connection.
 
 **参数**:
 - `handle`: `u64`
-- `bytes`: `list<u8>`
+- `bytes`: `list&lt;u8&gt;`
 
 **返回值**: `result<_, string>`
 
@@ -845,7 +845,7 @@ Get runtime status summary (event bus, worker, registry).
 Get EventBus stats.
 
 **参数**:
-- `limit`: `option<u32>`
+- `limit`: `option&lt;u32&gt;`
 
 **返回值**: `api-result`
 

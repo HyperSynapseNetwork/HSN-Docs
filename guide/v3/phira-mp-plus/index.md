@@ -27,12 +27,12 @@
 
 | 分类 | 文档 |
 |------|------|
-| **功能总览** | [PMP 相对 Phira-mp 新增功能](features.html)（含兼容矩阵） |
-| **部署与运维** | [部署/配置/运维](deployment.html) · [配置 JSON Schema](operations/config-schema.json) |
-| **对外 API** | [HTTP/SSE/WS · 插件 API · 能力表 · OpenUDS](api.html) |
-| **CLI 手册** | [CLI 命令参考](cli.html)（含[基准测试](cli.html#基准测试)） |
-| **插件开发** | [插件开发指南](plugin-dev.html)（含 WIT ABI、示例） |
-| **开发** | [架构](development/architecture.html) · [测试指南](development/testing.html) · [CLI 错误码 (EN)](development/error-codes.en.html) |
+| **功能总览** | [PMP 相对 Phira-mp 新增功能](docs/features.md)（含兼容矩阵） |
+| **部署与运维** | [部署/配置/运维](docs/deployment.md) · [配置 JSON Schema](docs/operations/config-schema.json) |
+| **对外 API** | [HTTP/SSE/WS · 插件 API · 能力表 · OpenUDS](docs/api.md) |
+| **CLI 手册** | [CLI 命令参考](docs/cli.md)（含[基准测试](docs/cli.md#基准测试)） |
+| **插件开发** | [插件开发指南](docs/plugin-dev.md)（含 WIT ABI、示例） |
+| **开发** | [架构](docs/development/architecture.md) · [测试指南](docs/development/testing.md) · [CLI 错误码 (EN)](docs/development/error-codes.en.md) |
 
 ## 许可
 
@@ -177,7 +177,7 @@ PM_DATABASE_URL="postgres://user:pass@host:5432/phira_mp_plus" ./phira-mp-plus-s
 > sudo -u postgres psql -c "CREATE DATABASE phira_mp_plus;"
 > ```
 
-配置加载规则：默认读取 `server_config.yml`，也可通过 `--config <FILE>` 指定；配置文件缺失时使用内置默认值，配置文件存在但格式、字段名或取值无效时拒绝启动。只有用户显式提供的命令行参数才覆盖 YAML，避免 CLI 默认值意外覆盖配置文件。完整说明见 [deployment.html](deployment.html)。
+配置加载规则：默认读取 `server_config.yml`，也可通过 `--config &lt;FILE&gt;` 指定；配置文件缺失时使用内置默认值，配置文件存在但格式、字段名或取值无效时拒绝启动。只有用户显式提供的命令行参数才覆盖 YAML，避免 CLI 默认值意外覆盖配置文件。完整说明见 [docs/deployment.md](docs/deployment.md)。
 
 ### 命令行参数
 
@@ -196,7 +196,7 @@ phira-mp-plus-server [OPTIONS]
   -h, --help                 显示帮助
   -V, --version              显示版本
 
-空载模式仅改变非关键后台活动的调度偏好，不会暂停权威持久化或可靠插件事件。更多配置项见 [deployment.html](deployment.html)。
+空载模式仅改变非关键后台活动的调度偏好，不会暂停权威持久化或可靠插件事件。更多配置项见 [docs/deployment.md](docs/deployment.md)。
 ```
 
 ## 项目结构

@@ -27,23 +27,23 @@
 | Command | Description |
 |---------|-------------|
 | `room list` | List active rooms |
-| `room info <id>` | Show room details |
-| `room close <id>` | Force-close a room |
-| `room kick <id> <user>` | Kick user from room |
-| `room lock <id>` | Lock/unlock room |
-| `room cycle <id>` | Toggle auto-cycle |
+| `room info &lt;id&gt;` | Show room details |
+| `room close &lt;id&gt;` | Force-close a room |
+| `room kick &lt;id&gt; &lt;user&gt;` | Kick user from room |
+| `room lock &lt;id&gt;` | Lock/unlock room |
+| `room cycle &lt;id&gt;` | Toggle auto-cycle |
 
 ### Plugin Management
 
 | Command | Description |
 |---------|-------------|
 | `plugin list` | List loaded plugins |
-| `plugin info <name>` | Show plugin metadata |
-| `plugin enable <name>` | Enable a disabled plugin |
-| `plugin disable <name>` | Disable a plugin |
+| `plugin info &lt;name&gt;` | Show plugin metadata |
+| `plugin enable &lt;name&gt;` | Enable a disabled plugin |
+| `plugin disable &lt;name&gt;` | Disable a plugin |
 | `plugin reload [name]` | Reload all or specific plugin |
-| `plugin remove <name>` | Unregister plugin (keep files) |
-| `plugin purge <name>` | Delete plugin files + data |
+| `plugin remove &lt;name&gt;` | Unregister plugin (keep files) |
+| `plugin purge &lt;name&gt;` | Delete plugin files + data |
 
 ### Runtime Diagnostics
 
@@ -62,14 +62,14 @@
 | `dead-letter list [n]` | Show recent dead-letter entries |
 | `dead-letter replay` | Re-queue dead-letter events |
 | `backup create [path]` | Archive config + data + WAL |
-| `restore verify <path>` | Verify backup integrity |
+| `restore verify &lt;path&gt;` | Verify backup integrity |
 | `config reload` | Hot-reload YAML config |
 
 ### Security
 
 | Command | Description |
 |---------|-------------|
-| `ban <user_id> <reason>` | Ban a user |
+| `ban <user_id> &lt;reason&gt;` | Ban a user |
 | `unban <user_id>` | Unban a user |
 | `banlist` | List banned users |
 

@@ -1,6 +1,6 @@
 # Phira-mp+ 插件开发指南
 
-> 完整 API 参考和 Capability 映射表请查看 [对外 API 文档](api.html)（含插件 API 与能力表，自动生成）。
+> 完整 API 参考和 Capability 映射表请查看 [对外 API 文档](api.md)（含插件 API 与能力表，自动生成）。
 
 ## 快速开始
 
@@ -182,7 +182,7 @@ fn init() -> Result<(), String> {
 注册后，客户端可连接 `GET /api/rooms/listen` 接收 SSE 事件。宿主收到每个 `MpEvent` 后调用插件 `on_api("sse:translate", &[json!({"event_type": ..., "data": ...})])`，插件返回翻译后的事件对象（或 `null` 跳过该事件）。
 `event_types` 会在调用插件前由宿主执行过滤；空数组表示接收全部事件。内置房间事件名称为 `create_room`、`update_room`、`join_room`、`leave_room`、`new_round`。为兼容旧配置，`CreateRoom`/`RoomCreate` 等历史写法仍可识别。插件启用或重载后新增的 SSE 路由立即生效，不需要重启 HTTP 服务。
 
-路由路径中支持 `:param`、`<param>`、`{param}` 参数占位符。路径缺少开头 `/` 时宿主会自动补全；重复注册同一路径会替换原处理器。普通 HTTP 路由与 SSE 路由均可在插件重载后即时生效。
+路由路径中支持 `:param`、`&lt;param&gt;`、`{param}` 参数占位符。路径缺少开头 `/` 时宿主会自动补全；重复注册同一路径会替换原处理器。普通 HTTP 路由与 SSE 路由均可在插件重载后即时生效。
 
 ---
 
