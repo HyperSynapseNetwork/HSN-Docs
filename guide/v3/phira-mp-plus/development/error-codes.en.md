@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 1
 ---
 # Error Codes & CLI Reference
 
