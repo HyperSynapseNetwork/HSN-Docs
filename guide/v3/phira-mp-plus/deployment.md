@@ -165,7 +165,7 @@ wasm_runtime:
 | `wasm_runtime` | `object` | 见下表 | WASM 插件运行时资源限制。 |
 | `compatibility` | `object` | 见下表 | 官方 Phira 客户端兼容参数（PMP42）。 |
 
-端口校验规则：`port`、`http_port` 和启用后的 `trusted_forwarded_http_port` 不能冲突；设置 `trusted_forwarded_http_port > 0` 时必须同时启用 `http_port`。`trusted_forwarded_http_port` 只解析可信代理写入的 `X-Forwarded-For`，不实现 PROXY v1/v2。`max_rooms` 与 `max_users_per_room` 若设置，必须大于 0；`max_sessions`、`max_pending_auth` 和关闭时限也必须为正。`max_rooms` 同时约束客户端建房与管理端/WIT 创建空房。
+端口校验规则：`port`、`http_port` 和启用后的 `trusted_forwarded_http_port` 不能冲突；设置 `trusted_forwarded_http_port &gt; 0` 时必须同时启用 `http_port`。`trusted_forwarded_http_port` 只解析可信代理写入的 `X-Forwarded-For`，不实现 PROXY v1/v2。`max_rooms` 与 `max_users_per_room` 若设置，必须大于 0；`max_sessions`、`max_pending_auth` 和关闭时限也必须为正。`max_rooms` 同时约束客户端建房与管理端/WIT 创建空房。
 
 ### 官方客户端兼容（`compatibility`）
 
@@ -358,15 +358,15 @@ admin.remove_id
 admin.set_ids
 ```
 
-管理员在客户端”创建房间”弹窗输入 `_<CLI命令>` 时，服务端不会创建房间，而是执行对应 CLI 命令，并将输出通过聊天消息发回该客户端。非管理员输入 `_...` 会按普通房间名处理。
+管理员在客户端”创建房间”弹窗输入 `_&lt;CLI命令&gt;` 时，服务端不会创建房间，而是执行对应 CLI 命令，并将输出通过聊天消息发回该客户端。非管理员输入 `_...` 会按普通房间名处理。
 
 ### 隐藏房间配置与行为
 
 隐藏房间不是全局配置项，而是房间状态：
 
 - 房间名以 `-` 开头时默认隐藏。
-- 可用 `room hide <房间ID>` / `room unhide <房间ID>` 手动切换。
-- 也可用 `room set <房间ID> hidden true|false` 修改。
+- 可用 `room hide &lt;房间ID&gt;` / `room unhide &lt;房间ID&gt;` 手动切换。
+- 也可用 `room set &lt;房间ID&gt; hidden true|false` 修改。
 - WASM/host API 可用 `room.set_hidden`、`room.is_hidden` 管理。
 - 隐藏房间不会出现在 `GET /api/rooms`、`GET /api/rooms/&lt;name&gt;`、`[active_rooms]` 欢迎语占位符和房间 SSE 初始公开快照中。
 - 隐藏只影响公开展示，不等于权限隔离；管理员命令和有权限插件仍可定向管理该房间。

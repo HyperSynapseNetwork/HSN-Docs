@@ -136,7 +136,7 @@ Call a server API method. Matches the host's ServerStateQuery interface.
 
 **参数**:
 - `method`: `string`
-- `args`: `list<json-value>`
+- `args`: `list&lt;json-value&gt;`
 
 **返回值**: `api-result`
 
@@ -161,10 +161,10 @@ Make an outbound HTTP request (sandboxed by WasmRuntimeConfig).
 **参数**:
 - `url`: `string`
 - `method`: `string`
-- `headers`: `list<tuple<string, string>>`
+- `headers`: `list&lt;tuple&lt;string, string&gt;&gt;`
 - `body`: `list&lt;u8&gt;`
 
-**返回值**: `result<http-response, string>`
+**返回值**: `result&lt;http-response, string&gt;`
 
 **所需 Capability**: `http`
 
@@ -654,7 +654,7 @@ Returns null if the key does not exist.
 
 #### `set-config`
 
-Persisted to data/plugins/<name>/config.json.
+Persisted to data/plugins/&lt;name&gt;/config.json.
 
 **参数**:
 - `key-path`: `string`
@@ -709,7 +709,7 @@ The private key never leaves the host process.
 **参数**:
 - `payload`: `list&lt;u8&gt;`
 
-**返回值**: `result<list&lt;u8&gt;, string>`
+**返回值**: `result&lt;list&lt;u8&gt;, string&gt;`
 
 **所需 Capability**: `crypto`
 
@@ -722,7 +722,7 @@ Verify a signature against a public key.
 - `payload`: `list&lt;u8&gt;`
 - `signature`: `list&lt;u8&gt;`
 
-**返回值**: `result<bool, string>`
+**返回值**: `result&lt;bool, string&gt;`
 
 **所需 Capability**: `crypto`
 
@@ -733,7 +733,7 @@ SHA-256 hash of arbitrary data.
 **参数**:
 - `data`: `list&lt;u8&gt;`
 
-**返回值**: `result<list&lt;u8&gt;, string>`
+**返回值**: `result&lt;list&lt;u8&gt;, string&gt;`
 
 **所需 Capability**: `crypto`
 
@@ -744,7 +744,7 @@ Get the server's node public key (for peer verification).
 **参数**:
 （无）
 
-**返回值**: `result<list&lt;u8&gt;, string>`
+**返回值**: `result&lt;list&lt;u8&gt;, string&gt;`
 
 **所需 Capability**: （无 — 公开 API）
 
@@ -759,7 +759,7 @@ Set a one-shot timer. When fired, host calls on-api("timer:fired", [timer-id]).
 - `delay-ms`: `u64`
 - `timer-id`: `string`
 
-**返回值**: `result<_, string>`
+**返回值**: `result&lt;_, string&gt;`
 
 **所需 Capability**: （无 — 公开 API）
 
@@ -770,7 +770,7 @@ Cancel a pending timer. No-op if timer already fired or unknown.
 **参数**:
 - `timer-id`: `string`
 
-**返回值**: `result<_, string>`
+**返回值**: `result&lt;_, string&gt;`
 
 **所需 Capability**: （无 — 公开 API）
 
@@ -786,7 +786,7 @@ Connect to a remote TCP endpoint. Returns a connection handle.
 **参数**:
 - `addr`: `string`
 
-**返回值**: `result<u64, string>`
+**返回值**: `result&lt;u64, string&gt;`
 
 **所需 Capability**: `tcp`
 
@@ -797,7 +797,7 @@ Start a TCP listener. Returns a listener handle.
 **参数**:
 - `addr`: `string`
 
-**返回值**: `result<u64, string>`
+**返回值**: `result&lt;u64, string&gt;`
 
 **所需 Capability**: `tcp`
 
@@ -809,7 +809,7 @@ Send raw bytes on an established connection.
 - `handle`: `u64`
 - `bytes`: `list&lt;u8&gt;`
 
-**返回值**: `result<_, string>`
+**返回值**: `result&lt;_, string&gt;`
 
 **所需 Capability**: `tcp`
 
@@ -820,7 +820,7 @@ Close a connection or stop a listener by handle.
 **参数**:
 - `handle`: `u64`
 
-**返回值**: `result<_, string>`
+**返回值**: `result&lt;_, string&gt;`
 
 **所需 Capability**: `tcp`
 
@@ -873,7 +873,7 @@ Get registered command stats.
 **参数**:
 （无）
 
-**返回值**: `result<_, string>`
+**返回值**: `result&lt;_, string&gt;`
 
 **所需 Capability**: （无 — 插件自身实现）
 
@@ -900,7 +900,7 @@ Get registered command stats.
 **参数**:
 - `event`: `plugin-event`
 
-**返回值**: `result<bool, string>`
+**返回值**: `result&lt;bool, string&gt;`
 
 **所需 Capability**: （无 — 插件自身实现）
 
@@ -908,7 +908,7 @@ Get registered command stats.
 
 **参数**:
 - `method`: `string`
-- `args`: `list<json-value>`
+- `args`: `list&lt;json-value&gt;`
 
 **返回值**: `api-result`
 

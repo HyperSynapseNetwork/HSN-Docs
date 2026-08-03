@@ -30,7 +30,7 @@ TUI 快捷键：`Tab` 补全、`Ctrl+A/E` 跳到行首/行尾、`Ctrl+B/F` 左�
 
 ## 命令约定
 
-- `<必填参数>` — 尖括号表示必须提供
+- `&lt;必填参数&gt;` — 尖括号表示必须提供
 - `[可选参数]` — 方括号表示可选
 - `[默认值]` — 方括号内等号表示默认值
 - 级别说明：**Primary** 基础管理（`help` 默认显示）| **Advanced** 高级操作 | **Developer** 开发诊断
@@ -105,7 +105,7 @@ help groups
 
 ---
 
-### `room info <room_id>`
+### `room info &lt;room_id&gt;`
 
 查看房间详情。
 
@@ -117,7 +117,7 @@ help groups
 
 ---
 
-### `room create-empty <room_id> [phira_api_endpoint]`
+### `room create-empty &lt;room_id&gt; [phira_api_endpoint]`
 
 创建无人持久空房间。
 
@@ -126,11 +126,11 @@ help groups
 | `room_id` | `str` | 房间名 |
 | `phira_api_endpoint` | `str` (可选) | 可选 Phira API endpoint 覆盖 |
 
-**输出:** `创建成功` 或 `房间 <room_id> 已存在`
+**输出:** `创建成功` 或 `房间 &lt;room_id&gt; 已存在`
 
 ---
 
-### `room close <room_id>`
+### `room close &lt;room_id&gt;`
 
 解散房间。
 
@@ -142,7 +142,7 @@ help groups
 
 ---
 
-### `room host <room_id> <user_id|?>`
+### `room host &lt;room_id&gt; &lt;user_id|?&gt;`
 
 设置房主。
 
@@ -151,11 +151,11 @@ help groups
 | `room_id` | `str` | 房间名 |
 | `user_id` | `int` / `?` | 用户 ID，`?` 表示系统房主 |
 
-**输出:** `房主已转移给 <user_name>` 或 `房主已设为系统 ?`
+**输出:** `房主已转移给 &lt;user_name&gt;` 或 `房主已设为系统 ?`
 
 ---
 
-### `room set <room_id> &lt;field&gt; &lt;value&gt;`
+### `room set &lt;room_id&gt; &lt;field&gt; &lt;value&gt;`
 
 修改房间设置。
 
@@ -169,9 +169,9 @@ help groups
 
 ---
 
-### `room start <room_id>`
+### `room start &lt;room_id&gt;`
 
-服务端强制发起房间游戏；客户端完成谱面加载并准备后正式开始。兼容旧命令 `force-start <room_id>`，也可使用 `room force-start <room_id>`。
+服务端强制发起房间游戏；客户端完成谱面加载并准备后正式开始。兼容旧命令 `force-start &lt;room_id&gt;`，也可使用 `room force-start &lt;room_id&gt;`。
 
 | 参数 | 类型 | 说明 |
 |------|------|------|
@@ -181,7 +181,7 @@ help groups
 
 ---
 
-### `room cancel <room_id>`
+### `room cancel &lt;room_id&gt;`
 
 取消管理员发起的游戏开始。
 
@@ -193,7 +193,7 @@ help groups
 
 ---
 
-### `room kick <room_id> <user_id>`
+### `room kick &lt;room_id&gt; &lt;user_id&gt;`
 
 从房间踢出用户。
 
@@ -206,7 +206,7 @@ help groups
 
 ---
 
-### `room hide <room_id> [true|false]`
+### `room hide &lt;room_id&gt; [true|false]`
 
 隐藏房间。隐藏的房间不在 Web API / 欢迎语中显示。
 
@@ -219,7 +219,7 @@ help groups
 
 ---
 
-### `room unhide <room_id>`
+### `room unhide &lt;room_id&gt;`
 
 取消隐藏房间。
 
@@ -231,7 +231,7 @@ help groups
 
 ---
 
-### `room force-move <room_id> <user_id> [monitor]`
+### `room force-move &lt;room_id&gt; &lt;user_id&gt; [monitor]`
 
 强制迁移用户到指定房间。原房间 ID 会被替换，此操作不可逆。
 
@@ -245,7 +245,7 @@ help groups
 
 ---
 
-### `room history <room_id>`
+### `room history &lt;room_id&gt;`
 
 查看房间游玩历史。
 
@@ -257,7 +257,7 @@ help groups
 
 ---
 
-### `room rounds <room_id>`
+### `room rounds &lt;room_id&gt;`
 
 查看房间轮次列表。
 
@@ -269,7 +269,7 @@ help groups
 
 ---
 
-### `room round <round_uuid>`
+### `room round &lt;round_uuid&gt;`
 
 查看指定轮次详情。
 
@@ -281,7 +281,7 @@ help groups
 
 ---
 
-### `room uuid <room_id>`
+### `room uuid &lt;room_id&gt;`
 
 查看房间 UUID。
 
@@ -293,7 +293,7 @@ help groups
 
 ---
 
-### `room ban <room_id> <user_id> [reason]`
+### `room ban &lt;room_id&gt; &lt;user_id&gt; [reason]`
 
 将用户加入房间黑名单。
 
@@ -307,7 +307,7 @@ help groups
 
 ---
 
-### `room unban <room_id> <user_id>`
+### `room unban &lt;room_id&gt; &lt;user_id&gt;`
 
 将用户移出房间黑名单。
 
@@ -320,7 +320,7 @@ help groups
 
 ---
 
-### `room banlist <room_id>`
+### `room banlist &lt;room_id&gt;`
 
 查看房间黑名单。
 
@@ -354,7 +354,7 @@ help groups
 
 ---
 
-### `kick <user_id>`
+### `kick &lt;user_id&gt;`
 
 踢出在线用户。
 
@@ -362,11 +362,11 @@ help groups
 |------|------|------|
 | `user_id` | `int` | 用户 ID |
 
-**输出:** `Kicked user <user_id> from server`
+**输出:** `Kicked user &lt;user_id&gt; from server`
 
 ---
 
-### `ban <user_id> [reason]`
+### `ban &lt;user_id&gt; [reason]`
 
 全局封禁用户。
 
@@ -379,7 +379,7 @@ help groups
 
 ---
 
-### `unban <user_id>`
+### `unban &lt;user_id&gt;`
 
 取消全局封禁。
 
@@ -413,7 +413,7 @@ help groups
 
 ---
 
-### `broadcast room <room_id> &lt;message&gt;`
+### `broadcast room &lt;room_id&gt; &lt;message&gt;`
 
 向指定房间内所有用户发送消息。
 
@@ -426,7 +426,7 @@ help groups
 
 ---
 
-### `broadcast user <user_id> &lt;message&gt;`
+### `broadcast user &lt;user_id&gt; &lt;message&gt;`
 
 向指定用户发送私信。
 
@@ -473,7 +473,7 @@ help groups
 
 ---
 
-### `admin-id set <PhiraID...>`
+### `admin-id set &lt;PhiraID...&gt;`
 
 替换整个管理员列表。
 
@@ -530,7 +530,7 @@ help groups
 
 ---
 
-### `plugin info <id_or_name>`
+### `plugin info &lt;id_or_name&gt;`
 
 查看插件详情。
 
@@ -542,7 +542,7 @@ help groups
 
 ---
 
-### `plugin call <id_or_name> &lt;method&gt; [JSON_ARRAY]`
+### `plugin call &lt;id_or_name&gt; &lt;method&gt; [JSON_ARRAY]`
 
 调用插件导出 API。
 
@@ -608,7 +608,7 @@ help groups
 
 ---
 
-### `benchmark compare <old.json> <new.json>`
+### `benchmark compare &lt;old.json&gt; &lt;new.json&gt;`
 
 比较两份基准测试报告（JSON 文件）的差异。
 
@@ -728,7 +728,7 @@ help groups
 
 ---
 
-### `playtime <user_id>`
+### `playtime &lt;user_id&gt;`
 
 查询指定用户的游玩时间。
 
@@ -740,7 +740,7 @@ help groups
 
 ---
 
-### `round-last <room_id>`
+### `round-last &lt;room_id&gt;`
 
 查看房间最近一轮结算结果。
 

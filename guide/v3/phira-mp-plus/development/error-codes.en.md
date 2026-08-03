@@ -69,8 +69,8 @@
 
 | Command | Description |
 |---------|-------------|
-| `ban <user_id> &lt;reason&gt;` | Ban a user |
-| `unban <user_id>` | Unban a user |
+| `ban &lt;user_id&gt; &lt;reason&gt;` | Ban a user |
+| `unban &lt;user_id&gt;` | Unban a user |
 | `banlist` | List banned users |
 
 ## Error Message Format

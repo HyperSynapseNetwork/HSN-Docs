@@ -236,11 +236,11 @@ fn on_api(method: String, args: Vec<JsonValue>) -> ApiResult {
 
 | 函数 | 签名 | 说明 |
 |------|------|------|
-| `init` | `func() -> result<_, string>` | 初始化，返回 ok/error |
-| `get-info` | `func() -> plugin-info` | 元数据（名称/版本/作者/描述） |
+| `init` | `func() -&gt; result&lt;_, string&gt;` | 初始化，返回 ok/error |
+| `get-info` | `func() -&gt; plugin-info` | 元数据（名称/版本/作者/描述） |
 | `cleanup` | `func()` | 卸载时清理 |
-| `on-event` | `func(event: plugin-event) -> result<bool, string>` | 事件处理 |
-| `on-api` | `func(method: string, args: list<json-value>) -> api-result` | API 调用入口 |
+| `on-event` | `func(event: plugin-event) -&gt; result&lt;bool, string&gt;` | 事件处理 |
+| `on-api` | `func(method: string, args: list&lt;json-value&gt;) -&gt; api-result` | API 调用入口 |
 
 ### 宿主导入（12 个接口，53 个函数）
 
@@ -265,7 +265,7 @@ fn on_api(method: String, args: Vec<JsonValue>) -> ApiResult {
 
 #### phira-user-mgmt / phira-messaging / phira-persistence / phira-admin / phira-config / phira-runtime
 
-全部 53 个函数的详细签名见 [WIT 定义文件](../wit/phira-plugin.wit)。
+全部 53 个函数的详细签名见 [WIT 定义文件](https://github.com/HyperSynapseNetwork/Phira-mp-plus/blob/main/wit/phira-plugin.wit)。
 
 ---
 
@@ -378,7 +378,7 @@ wit_bindgen::generate!({
 });
 ```
 
-完整 host API 列表见 [WIT 定义文件](../wit/phira-plugin.wit)。
+完整 host API 列表见 [WIT 定义文件](https://github.com/HyperSynapseNetwork/Phira-mp-plus/blob/main/wit/phira-plugin.wit)。
 # WIT ABI 规范
 
 > 本文档由 `wit_abi_contracts::generate_wit_docs()` 自动生成规范，请勿手动编辑。

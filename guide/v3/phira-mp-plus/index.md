@@ -4,7 +4,7 @@
 
 > Phira-mp+ 是基于 phira-mp 开发的Phira多人游戏服务端，使用Rust开发，支持WASM插件系统，旨在提供稳定，高性能，高拓展性的Phira多人游戏服务端。使用AI开发。被[HSNPhira](https://phira.htadiy.com/)使用。
 
-[![License](https://img.shields.io/badge/License-AGPLv3-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-AGPLv3-blue.svg)](https://github.com/HyperSynapseNetwork/Phira-mp-plus/blob/main/LICENSE)
 [![Build](https://github.com/HyperSynapseNetwork/Phira-mp-plus/actions/workflows/build.yml/badge.svg)](https://github.com/HyperSynapseNetwork/Phira-mp-plus/actions/workflows/build.yml)
 
 ## 简介
@@ -27,18 +27,18 @@
 
 | 分类 | 文档 |
 |------|------|
-| **功能总览** | [PMP 相对 Phira-mp 新增功能](docs/features.md)（含兼容矩阵） |
-| **部署与运维** | [部署/配置/运维](docs/deployment.md) · [配置 JSON Schema](docs/operations/config-schema.json) |
-| **对外 API** | [HTTP/SSE/WS · 插件 API · 能力表 · OpenUDS](docs/api.md) |
-| **CLI 手册** | [CLI 命令参考](docs/cli.md)（含[基准测试](docs/cli.md#基准测试)） |
-| **插件开发** | [插件开发指南](docs/plugin-dev.md)（含 WIT ABI、示例） |
-| **开发** | [架构](docs/development/architecture.md) · [测试指南](docs/development/testing.md) · [CLI 错误码 (EN)](docs/development/error-codes.en.md) |
+| **功能总览** | [PMP 相对 Phira-mp 新增功能](features.html)（含兼容矩阵） |
+| **部署与运维** | [部署/配置/运维](deployment.html) · [配置 JSON Schema](operations/config-schema.json) |
+| **对外 API** | [HTTP/SSE/WS · 插件 API · 能力表 · OpenUDS](api.html) |
+| **CLI 手册** | [CLI 命令参考](cli.html)（含[基准测试](cli.html#基准测试)） |
+| **插件开发** | [插件开发指南](plugin-dev.html)（含 WIT ABI、示例） |
+| **开发** | [架构](development/architecture.html) · [测试指南](development/testing.html) · [CLI 错误码 (EN)](development/error-codes.en.html) |
 
 ## 许可
 
-PMP 服务端采用 [AGPL-3.0](LICENSE) 开源。
-插件 SDK（`phira-plugin-sdk`）采用 [Apache-2.0](LICENSE-APACHE) 许可。
-第三方依赖的许可声明见 [NOTICE](NOTICE)。
+PMP 服务端采用 [AGPL-3.0](https://github.com/HyperSynapseNetwork/Phira-mp-plus/blob/main/LICENSE) 开源。
+插件 SDK（`phira-plugin-sdk`）采用 [Apache-2.0](https://github.com/HyperSynapseNetwork/Phira-mp-plus/blob/main/LICENSE-APACHE) 许可。
+第三方依赖的许可声明见 [NOTICE](https://github.com/HyperSynapseNetwork/Phira-mp-plus/blob/main/NOTICE)。
 
 ## 技术栈
 
@@ -177,7 +177,7 @@ PM_DATABASE_URL="postgres://user:pass@host:5432/phira_mp_plus" ./phira-mp-plus-s
 > sudo -u postgres psql -c "CREATE DATABASE phira_mp_plus;"
 > ```
 
-配置加载规则：默认读取 `server_config.yml`，也可通过 `--config &lt;FILE&gt;` 指定；配置文件缺失时使用内置默认值，配置文件存在但格式、字段名或取值无效时拒绝启动。只有用户显式提供的命令行参数才覆盖 YAML，避免 CLI 默认值意外覆盖配置文件。完整说明见 [docs/deployment.md](docs/deployment.md)。
+配置加载规则：默认读取 `server_config.yml`，也可通过 `--config &lt;FILE&gt;` 指定；配置文件缺失时使用内置默认值，配置文件存在但格式、字段名或取值无效时拒绝启动。只有用户显式提供的命令行参数才覆盖 YAML，避免 CLI 默认值意外覆盖配置文件。完整说明见 [deployment.html](deployment.html)。
 
 ### 命令行参数
 
@@ -196,7 +196,7 @@ phira-mp-plus-server [OPTIONS]
   -h, --help                 显示帮助
   -V, --version              显示版本
 
-空载模式仅改变非关键后台活动的调度偏好，不会暂停权威持久化或可靠插件事件。更多配置项见 [docs/deployment.md](docs/deployment.md)。
+空载模式仅改变非关键后台活动的调度偏好，不会暂停权威持久化或可靠插件事件。更多配置项见 [deployment.html](deployment.html)。
 ```
 
 ## 项目结构
@@ -396,14 +396,14 @@ Phira-mp-plus/
 
 ## 许可证
 
-Phira-mp+ 整体采用 **GNU Affero General Public License v3.0** — 详见 [LICENSE](LICENSE)。
+Phira-mp+ 整体采用 **GNU Affero General Public License v3.0** — 详见 [LICENSE](https://github.com/HyperSynapseNetwork/Phira-mp-plus/blob/main/LICENSE)。
 
 协议层（`phira-mp-common`、`phira-mp-macros`）基于 [phira-mp](https://github.com/TeamFlos/phira-mp) 衍生；
-`phira-plugin-sdk`（WASM 插件 SDK）亦按 **Apache License, Version 2.0** 授权 — 详见 [LICENSE-APACHE](LICENSE-APACHE)。
+`phira-plugin-sdk`（WASM 插件 SDK）亦按 **Apache License, Version 2.0** 授权 — 详见 [LICENSE-APACHE](https://github.com/HyperSynapseNetwork/Phira-mp-plus/blob/main/LICENSE-APACHE)。
 
-完整的版权归属和第三方依赖许可证声明见 [NOTICE](NOTICE)。
+完整的版权归属和第三方依赖许可证声明见 [NOTICE](https://github.com/HyperSynapseNetwork/Phira-mp-plus/blob/main/NOTICE)。
 
 ## 致谢
 
-感谢 [TeamFlos](https://github.com/TeamFlos) 开发和维护 Phira、phira-mp 项目，以及 [tphira-mp](https://github.com/Pimeng/tphira-mp) 与 [jphira-mp](https://github.com/lRENyaaa/jphira-mp) 提供的实现思路，还有所有支持本项目的用户。详见 [NOTICE](NOTICE)。
+感谢 [TeamFlos](https://github.com/TeamFlos) 开发和维护 Phira、phira-mp 项目，以及 [tphira-mp](https://github.com/Pimeng/tphira-mp) 与 [jphira-mp](https://github.com/lRENyaaa/jphira-mp) 提供的实现思路，还有所有支持本项目的用户。详见 [NOTICE](https://github.com/HyperSynapseNetwork/Phira-mp-plus/blob/main/NOTICE)。
 
