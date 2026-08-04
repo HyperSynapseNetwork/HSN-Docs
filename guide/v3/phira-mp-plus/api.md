@@ -658,7 +658,7 @@ Returns null if the key does not exist.
 
 #### `set-config`
 
-Persisted to data/plugins/<name>/config.json.
+Persisted to data/plugins/`<name>`/config.json.
 
 **参数**:
 - `key-path`: `string`
