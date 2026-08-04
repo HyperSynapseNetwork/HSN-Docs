@@ -1,6 +1,3 @@
----
-order: 2
----
 # PMP 功能总览
 
 > 以下内容基于代码逐项梳理 PMP（Phira-mp-plus）在官方 [Phira-mp](https://github.com/TeamFlos/phira-mp) 基础上新增的**所有功能与行为**。
@@ -91,7 +88,7 @@ order: 2
 
 ## 四、游戏内 CLI 命令
 
-- **`_` 房间名快捷方式**：管理员在房间名输入框创建名为 `_&lt;command&gt;` 的房间执行 CLI：`_`→空格（`_room_list`→`room list`）、`__` 转义字面量；结果以 `[CLI]` 前缀 Chat 消息回显
+- **`_` 房间名快捷方式**：管理员在房间名输入框创建名为 `_<command>` 的房间执行 CLI：`_`→空格（`_room_list`→`room list`）、`__` 转义字面量；结果以 `[CLI]` 前缀 Chat 消息回显
 - **多行续行**：命令 `--` 结尾暂存，下一条 `--` 开头续接
 - 支持全部管理 CLI 命令
 
@@ -103,12 +100,12 @@ order: 2
 **用户**：`users`、`kick`、`admin-id list/add/remove/set`
 **封禁**：`ban [reason]`、`ban ip`、`unban`、`banlist`、`ip-history`
 **广播**：`broadcast all|room|user`
-**房间**：`rooms/room list`、`room create-empty`、`room info`、`room start/ready/cancel/kick/host`、`room force-move`、`room hide/unhide`、`room close`、`room lock/cycle`、`room set &lt;field&gt;`（lock/cycle/hidden/persistent/degraded/host/chart/api_endpoint）、`room history/rounds/round/uuid`、`room ban/unban/banlist`、`force-start`
+**房间**：`rooms/room list`、`room create-empty`、`room info`、`room start/ready/cancel/kick/host`、`room force-move`、`room hide/unhide`、`room close`、`room lock/cycle`、`room set <field>`（lock/cycle/hidden/persistent/degraded/host/chart/api_endpoint）、`room history/rounds/round/uuid`、`room ban/unban/banlist`、`force-start`
 **插件**：`plugin list/enable/disable/remove/reload/info/call`（WASM 插件可动态注册 CLI 命令）
 **扩展**：`extension list/get`
-**杂项**：`roomcreation on|off`、`approve openuds`、`welcome-config`、`player-count`、`round-last`
+**杂项**：`roomcreation on|off`、`approve openuds`、`welcome-config`、`player-count`
 **基准**：`benchmark list/run/suite/compare/cleanup`
-**运行时**：`runtime status/phira/commands/events/rooms/actors/schema/persistence/latency`
+**运行时**：`runtime status/phira/commands/events/schema/persistence/latency`
 **WAL/死信**：`wal inspect`、`dead-letter list/replay`
 
 ---
@@ -189,7 +186,7 @@ order: 2
 
 - **ProtocolTrace 全局计数器**：请求/响应时序、认证屏障、慢路径；**生产必须为 0**：silent_response_paths/late_commit/commit_without_response/compat_queue_drop/stale_commit_prevented/gate_control_overflow/critical_compat_drop
 - **延迟直方图**：9 桶（1/5/10/50/100/500/1000/5000ms）
-- **`runtime latency` CLI**：在管理控制台打印响应延迟直方图（服务端命令处理，`命令收到→响应`），以 `█` 条形图渲染各桶计数与百分比（`&lt; 1ms` / `1–5ms` / … / `≥ 5000ms`）
+- **`runtime latency` CLI**：在管理控制台打印两个直方图——响应延迟（命令收到→响应）与**握手延迟**（收到认证→AuthOK 发出），以 `█` 条形图渲染各桶计数与百分比（`< 1ms` / `1–5ms` / … / `≥ 5000ms`）
 - **EventBus / RoomCommandGateway / PersistenceWorker 统计**：队列/延迟/计数
 - **日志**：每小时滚动 + stdout + TUI + OpenUDS；JSON 结构化；脱敏（token/password）
 - **Sentry**：`sentry_dsn` + `sentry` feature（Release 默认关）

@@ -1,6 +1,3 @@
----
-order: 3
----
 # Phira-mp+ 部署与运维
 
 本文档涵盖 PMP 的环境配置、`server_config.yml` 配置说明、备份/恢复、升级/回滚、容量规划与排障。配置的 JSON Schema 见 [`operations/config-schema.json`](operations/config-schema.json)。
@@ -52,7 +49,7 @@ PM_DATABASE_URL="postgres://postgres:your_password@localhost:5432/phira_mp_plus"
 ### 配置加载规则
 
 - 默认读取项目当前工作目录下的 `server_config.yml`。
-- 可用 `--config &lt;FILE&gt;` 指定其他 YAML 配置文件。
+- 可用 `--config <FILE>` 指定其他 YAML 配置文件。
 - 配置文件不存在时使用内置默认值；配置文件存在但 YAML 解析失败、包含未知顶层字段或校验不通过时直接拒绝启动，避免拼写错误被静默忽略并继续使用默认安全策略。
 - YAML 可以只写需要覆盖的字段，其余字段使用结构体默认值。
 - 只有显式提供的命令行参数才覆盖 YAML：`--port`、`--http-port`、`--proxy-port`、`--monitor`、`--plugins-dir`、`--ext-file`、`--no-cli`。未提供的 CLI 参数不会再用其默认值覆盖 YAML。
@@ -143,7 +140,7 @@ wasm_runtime:
 | `port` | `u16` | `12346` | TCP 游戏协议监听端口。Phira 客户端连接这个端口。 |
 | `http_port` | `u16` | `12347` | PMP HTTP/SSE/WebSocket 端口 |
 | `http_bind_address` | `String` | `0.0.0.0` | HTTP/SSE/WebSocket 监听地址。默认所有接口；通过反向代理访问时建议改为 `127.0.0.1`。 |
-| `monitors` | `Vec&lt;i32&gt;` | `[2]` | Phira 用户 ID 白名单，允许用 room monitor 协议旁观的用户。 |
+| `monitors` | `Vec<i32>` | `[2]` | Phira 用户 ID 白名单，允许用 room monitor 协议旁观的用户。 |
 | `phira_api_endpoint` | `String` | `https://phira.5wyxi.com` | 全局 Phira API 地址。认证默认访问它；房间未配置覆盖时，查谱面、查成绩也访问它。 |
 | `plugins_dir` | `String` | `plugins` | WASM 插件目录。服务端启动时会自动创建。 |
 | `extensions_file` | `String?` | `data/extensions.json` | 扩展数据持久化 JSON 路径。 |
@@ -164,11 +161,11 @@ wasm_runtime:
 | `idle` | `object` | 见下文 | 空载调度提示。不得暂停或丢弃权威持久化与可靠插件事件；只允许降低非关键后台活动。 |
 | `sentry_dsn` | `String?` | 未设置 | Sentry 错误监控 DSN。设置有效的 Sentry DSN 可启用自动错误和 Panic 捕获，留空或省略则不启用。 |
 | `server_name` | `String?` | 未设置 | 服务器展示名称，可用于欢迎语等场景。 |
-| `admin_phira_ids` | `Vec&lt;i32&gt;` | `[]` | 游戏内管理员 Phira ID。管理员可在创建房间弹窗输入 `_命令` 执行 CLI 命令。 |
+| `admin_phira_ids` | `Vec<i32>` | `[]` | 游戏内管理员 Phira ID。管理员可在创建房间弹窗输入 `_命令` 执行 CLI 命令。 |
 | `wasm_runtime` | `object` | 见下表 | WASM 插件运行时资源限制。 |
 | `compatibility` | `object` | 见下表 | 官方 Phira 客户端兼容参数（PMP42）。 |
 
-端口校验规则：`port`、`http_port` 和启用后的 `trusted_forwarded_http_port` 不能冲突；设置 `trusted_forwarded_http_port &gt; 0` 时必须同时启用 `http_port`。`trusted_forwarded_http_port` 只解析可信代理写入的 `X-Forwarded-For`，不实现 PROXY v1/v2。`max_rooms` 与 `max_users_per_room` 若设置，必须大于 0；`max_sessions`、`max_pending_auth` 和关闭时限也必须为正。`max_rooms` 同时约束客户端建房与管理端/WIT 创建空房。
+端口校验规则：`port`、`http_port` 和启用后的 `trusted_forwarded_http_port` 不能冲突；设置 `trusted_forwarded_http_port > 0` 时必须同时启用 `http_port`。`trusted_forwarded_http_port` 只解析可信代理写入的 `X-Forwarded-For`，不实现 PROXY v1/v2。`max_rooms` 与 `max_users_per_room` 若设置，必须大于 0；`max_sessions`、`max_pending_auth` 和关闭时限也必须为正。`max_rooms` 同时约束客户端建房与管理端/WIT 创建空房。
 
 ### 官方客户端兼容（`compatibility`）
 
@@ -179,7 +176,7 @@ wasm_runtime:
 | `compatibility.official_phira_client` | `bool` | `true` | 是否针对未修改的官方客户端启用兼容延迟。设为 `false` 可做差分/压测。 |
 | `compatibility.minimum_response_latency_ms` | `u64` | `10` | 请求型命令响应的最低服务端延迟（毫秒），从收到命令开始计时。模拟官方服务端自然调度，保证客户端 `send→install-callback` 顺序不被破坏。 |
 | `compatibility.session_command_deadline_ms` | `u64` | `4500` | 单条普通客户端命令的总业务 deadline（毫秒），覆盖 mailbox 发送与 reply 两个阶段。必须明显小于官方客户端约 7 秒的固定等待；合法范围 `100..=6000`。 |
-| `compatibility.protocol_hack_delay_ms` | `Option&lt;u64&gt;` | `None`（回退到 `minimum_response_latency_ms`） | ProtocolHack 补偿消息延迟（毫秒）。PMP 扩展补偿（ChangeHost/ChangeState/持久房间/回放模拟）在官方响应 flush 之后按固定顺序调度，不阻塞 Room Actor。设为 `0` 可做差分测试（与官方/无补偿时序对比）。 |
+| `compatibility.protocol_hack_delay_ms` | `Option<u64>` | `None`（回退到 `minimum_response_latency_ms`） | ProtocolHack 补偿消息延迟（毫秒）。PMP 扩展补偿（ChangeHost/ChangeState/持久房间/回放模拟）在官方响应 flush 之后按固定顺序调度，不阻塞 Room Actor。设为 `0` 可做差分测试（与官方/无补偿时序对比）。 |
 
 ```yaml
 compatibility:
@@ -210,7 +207,7 @@ compatibility:
 | `event_queue_capacity` | `2048` | 可靠低/中频插件事件队列容量。 |
 | `call_timeout_ms` | `2000` | init/event/API 的墙钟期限。fuel 约束 guest CPU，但进程内宿主阻塞调用不能获得 OS 级强杀保证。 |
 
-插件 capability 从同目录 sidecar `&lt;plugin&gt;.capabilities.json` 读取。缺失时只授予非特权默认能力；未知 capability 会拒绝加载。
+插件 capability 从同目录 sidecar `<plugin>.capabilities.json` 读取。缺失时只授予非特权默认能力；未知 capability 会拒绝加载。
 
 ### 运行时重载
 
@@ -361,17 +358,17 @@ admin.remove_id
 admin.set_ids
 ```
 
-管理员在客户端”创建房间”弹窗输入 `_&lt;CLI命令&gt;` 时，服务端不会创建房间，而是执行对应 CLI 命令，并将输出通过聊天消息发回该客户端。非管理员输入 `_...` 会按普通房间名处理。
+管理员在客户端”创建房间”弹窗输入 `_<CLI命令>` 时，服务端不会创建房间，而是执行对应 CLI 命令，并将输出通过聊天消息发回该客户端。非管理员输入 `_...` 会按普通房间名处理。
 
 ### 隐藏房间配置与行为
 
 隐藏房间不是全局配置项，而是房间状态：
 
 - 房间名以 `-` 开头时默认隐藏。
-- 可用 `room hide &lt;房间ID&gt;` / `room unhide &lt;房间ID&gt;` 手动切换。
-- 也可用 `room set &lt;房间ID&gt; hidden true|false` 修改。
+- 可用 `room hide <房间ID>` / `room unhide <房间ID>` 手动切换。
+- 也可用 `room set <房间ID> hidden true|false` 修改。
 - WASM/host API 可用 `room.set_hidden`、`room.is_hidden` 管理。
-- 隐藏房间不会出现在 `GET /api/rooms`、`GET /api/rooms/&lt;name&gt;`、`[active_rooms]` 欢迎语占位符和房间 SSE 初始公开快照中。
+- 隐藏房间不会出现在 `GET /api/rooms`、`GET /api/rooms/<name>`、`[active_rooms]` 欢迎语占位符和房间 SSE 初始公开快照中。
 - 隐藏只影响公开展示，不等于权限隔离；管理员命令和有权限插件仍可定向管理该房间。
 
 ### TUI / 终端相关配置
@@ -433,7 +430,7 @@ MALLOC_CONF=background_thread:true,dirty_decay_ms:3000,muzzy_decay_ms:3000,stats
 | `data/extensions.json` | 扩展数据持久化文件，受 `extensions_file` 影响。 |
 | `data/welcome-config.json` | 欢迎语模板与占位符相关配置。 |
 | `data/rounds/` | 轮次 Touches/Judges 数据。 |
-| `data/plugins/&lt;plugin&gt;/` | 插件私有持久化文件目录。 |
+| `data/plugins/<plugin>/` | 插件私有持久化文件目录。 |
 | `log/` | 运行日志目录。 |
 | `NOTICE` | 版权归属与第三方依赖许可证声明。 |
 
@@ -462,7 +459,7 @@ WAL 提供本地节点持久性，不是复制。它无法在宿主机文件系�
 #### 创建备份
 
 ```bash
-pmp-admin backup /path/to/backup/dir
+pmp-admin backup create /path/to/backup/dir
 ```
 
 备份内容：
@@ -541,7 +538,7 @@ PMP 配置支持 YAML 文件、环境变量、CLI 参数三层覆盖（优先 CL
 
 #### 配置加载顺序
 
-1. `--config &lt;FILE&gt;` 指定（或默认 `server_config.yml`）
+1. `--config <FILE>` 指定（或默认 `server_config.yml`）
 2. 环境变量覆盖（如 `PMP_PORT=12346`）
 3. CLI 参数覆盖（如 `--port 12346`）
 
@@ -563,14 +560,14 @@ PMP 配置支持 YAML 文件、环境变量、CLI 参数三层覆盖（优先 CL
 
 ```bash
 # 1. 备份当前状态
-pmp-admin backup /tmp/pre-upgrade-backup
+pmp-admin backup create /tmp/pre-upgrade-backup
 
 # 2. 替换二进制
 cp phira-mp-plus-server /usr/local/bin/
 systemctl restart pmp
 
 # 3. 验证
-pmp-admin status
+systemctl status pmp
 journalctl -u pmp -n 50
 ```
 
@@ -582,7 +579,7 @@ cp phira-mp-plus-server.bak /usr/local/bin/
 systemctl restart pmp
 
 # 2. 如需恢复数据
-pmp-admin backup restore /tmp/pre-upgrade-backup
+手动将备份解压回目标目录后重启 PMP（pmp-admin 仅提供 `backup create` / `backup verify`）
 ```
 
 #### 迁移注意事项
@@ -612,8 +609,8 @@ pmp-admin backup restore /tmp/pre-upgrade-backup
 #### 服务器无法启动
 
 ```bash
-# 检查配置
-pmp-admin check-config
+# 检查配置（服务器交互式控制台内执行 check-config）
+# 无服务器时直接检查 server_config.yml
 
 # 检查端口占用
 ss -tlnp | grep 12346
@@ -624,8 +621,8 @@ journalctl -u pmp -n 100 --no-pager
 
 #### 玩家无法连接
 
-1. `pmp-admin status` 确认服务器运行
-2. `pmp-admin rooms` 查看房间列表
+1. `systemctl status pmp` 确认服务器运行
+2. 在服务器交互式控制台执行 `rooms` 查看房间列表
 3. 检查防火墙端口
 4. 检查认证服务可用性
 
