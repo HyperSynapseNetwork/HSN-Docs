@@ -1,5 +1,5 @@
 ---
-order: 100
+order: 80
 ---
 # Error Codes & CLI Reference
 

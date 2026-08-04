@@ -1,3 +1,7 @@
+---
+order: 60
+---
+
 # 从 HSNPhira (user.py) 迁移到 Phira-mp+
 
 本文档说明如何将 HSNPhira 后端（`user.py` + SQLite）的数据迁移到 Phira-mp+。

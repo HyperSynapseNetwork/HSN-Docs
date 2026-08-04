@@ -1,3 +1,7 @@
+---
+order: 40
+---
+
 # PMP 功能总览
 
 > 以下内容基于代码逐项梳理 PMP（Phira-mp-plus）在官方 [Phira-mp](https://github.com/TeamFlos/phira-mp) 基础上新增的**所有功能与行为**。
