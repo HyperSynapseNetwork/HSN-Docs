@@ -195,6 +195,8 @@ help groups
 
 **`tournament true`：** 赛事模式房间（房间级配置，非全局）。开启后禁用 PMP 默认交互行为——准备倒计时自动开赛、每轮结算广播、房主自动转移、cycle 自动轮换、Playing 期 late-join 确认、聊天，全部交由 PPB 编排（PPB 经 OpenUDS `room.set_tournament` 设置）。
 
+**`live true/false`：** 房间 live 状态（建房自动置 true，此处可手动开关，供 Panel/PPB 控制）。
+
 **输出:** 执行结果消息
 
 **字段说明:**
