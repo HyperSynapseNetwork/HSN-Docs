@@ -1,5 +1,4 @@
 {
-{
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Phira-mp+ Configuration",
   "description": "Schema for server_config.yml — validates structure and constraints",
