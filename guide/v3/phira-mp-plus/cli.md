@@ -47,6 +47,8 @@ TUI 快捷键：`Tab` 补全、`Ctrl+A/E` 跳到行首/行尾、`Ctrl+B/F` 左�
 
 查看命令帮助。`help` 无参数时显示全部命令清单。
 
+> 会话数由房间自动推导：每个房间 2 个独立虚拟成员，`sessions = playing_rooms × 2`。
+
 | 参数 | 类型 | 说明 |
 |------|------|------|
 | `command` | `str` (可选) | 要查看详情的命令名，如 `help room close` |
@@ -638,14 +640,12 @@ help groups
 
 **两种模式：**
 
-- **`fixed`** —— 维持负载上限：最大会话数 + 最大同时在线游玩房间数，持续到
-  时长或取消。
+- **`fixed`** —— 维持最大同时在线游玩房间数，持续到时长或取消。
 - **`ramp`** —— 自动加压直到 CPU / RAM 触顶后维持，持续到时长或取消。
 
 | 参数 | 类型 | 说明 |
 |------|------|------|
-| `--sessions <N>` | `int` | fixed：最大会话数 |
-| `--playing-rooms <M>` | `int` | fixed：最大同时在线游玩房间数 |
+| `--playing-rooms <M>` | `int` | fixed：最大同时在线游玩房间数（会话数自动 = 房间 × 2） |
 | `--cpu <P>` | `float` | ramp：CPU 上限（百分比 0-100） |
 | `--ram <S>` | `str` | ramp：RAM 上限（如 4096m / 4g / 字节数） |
 | `--duration <D>` | `str` (可选) | 时长：30 / 10m / 2h（缺省 60s） |
@@ -654,8 +654,8 @@ help groups
 
 **示例:**
 ```
-benchmark run fixed --sessions 1000 --playing-rooms 50 --duration 10m
-benchmark run fixed --sessions 2000 --playing-rooms 100 --forever
+benchmark run fixed --playing-rooms 50 --duration 10m
+benchmark run fixed --playing-rooms 100 --forever
 benchmark run ramp --cpu 80 --ram 4g --duration 1h
 ```
 
