@@ -4,7 +4,6 @@ HyperSynapse Network Phira多人游戏服务器前端应用
 
 ## 项目简介
 
-> 本项目由多个顶尖AI研究所提供技术支持<br>
 > 本项目使用了多种AI工具进行开发
 
 这是一个基于 Vue 3 + TypeScript + Tailwind CSS 构建的现代化Web应用，为HSNPhira多人游戏服务器提供完整的前端界面。
@@ -539,22 +538,22 @@ server {
 
 ## 效果
 可以前往 [HSNPhira官网](https://phira.htadiy.com/) 查看部署效果
-![部署完成后的首页](https://github.com/HyperSynapseNetwork/HSNPhira/blob/frontend-remake/images/deploy-result.jpg?raw=true)
+![部署完成后的首页](images/deploy-result.jpg)
 
 ## 许可证
 
-本项目采用 GNU Affero General Public License（AGPL）3.0 开源协议。
+本项目采用 [MIT 许可证](https://opensource.org/licenses/MIT)。
 
 ### 版权声明
-版权所有 © HyperSynapse Network。保留所有权利。
+版权所有 © HyperSynapse Network。
 
-### 开发者义务
-根据 AGPL-3.0 协议，使用、修改或分发本项目的开发者必须：
-- 保留原项目的版权和许可证声明。
-- 在分发时提供完整的源代码。
-- 任何基于本项目的衍生作品也必须使用 AGPL-3.0 协议开源。
+### 许可条款
+根据 MIT 许可证，任何人都可以自由使用、复制、修改、合并、发布、分发、再许可和/或出售本软件的副本，但必须满足以下条件：
 
-详细条款请查看 [GNU AGPL v3.0](https://www.gnu.org/licenses/agpl-3.0.html) 许可证全文。
+- 保留上述版权声明和本许可声明。
+- 本软件按“原样”提供，不附带任何明示或暗示的担保。
+
+详细条款请查看 [MIT 许可证](https://opensource.org/licenses/MIT) 全文。
 
 ## 联系方式
 
