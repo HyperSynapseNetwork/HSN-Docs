@@ -11,7 +11,7 @@ Phira-mp-plus/
 │
 ├── Cargo.toml                   # 工作区根 (workspace)
 ├── Cargo.lock
-├── LICENSE                      # AGPL-3.0
+├── LICENSE                      # Apache-2.0
 ├── README.md
 │
 ├── server_config.yml            # YAML 配置文件（首次运行自动生成默认模板）

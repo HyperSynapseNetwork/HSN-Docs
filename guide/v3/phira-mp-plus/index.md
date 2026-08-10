@@ -1,6 +1,6 @@
 # Phira-mp +
 
-[![License](https://img.shields.io/badge/License-AGPLv3-blue.svg)](#许可证)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](#许可证)
 
 ## 简介
 
@@ -95,7 +95,7 @@ Phira-mp-plus/
 │
 ├── Cargo.toml                   # 工作区根 (workspace)
 ├── Cargo.lock
-├── LICENSE                      # AGPL-3.0
+├── LICENSE                      # Apache-2.0
 ├── README.md
 │
 ├── server_config.yml            # YAML 配置文件（首次运行自动生成默认模板）
@@ -226,7 +226,7 @@ WASM 插件通过 `phira:host/api` 和 `phira:host/log` 等导入函数与宿主
 
 ## 许可证
 
-AGPLv3 — 详见 [LICENSE](https://www.gnu.org/licenses/agpl-3.0.html)。
+Apache-2.0 — 详见 [LICENSE](LICENSE)。
 
 ## 致谢
 
