@@ -6,7 +6,7 @@ order: 10
 
 # Phira-mp+
 
-<img src="docs/logo/phira-mp-plus-banner.png" width="60%" alt="Phira-mp+ banner" />
+<img src="https://docs.phira.htadiy.com/docs/logo/phira-mp-plus-banner.png" width="60%" alt="Phira-mp+ banner" />
 
 **Phira-mp+（PMP）** — 基于 [phira-mp](https://github.com/HyperSynapseNetwork/phira-mp) 的高性能 Phira 多人游戏服务端 · Rust / WASM 插件 / WAL 先行 / Actor 模型
 
@@ -39,21 +39,21 @@ order: 10
 - **WAL 先行 + 崩溃恢复**：权威事件落盘确认后才回包，崩溃后重放不丢数据、失败不静默（fail-closed）
 - **Actor 模型**：每房间独立 mailbox 串行化状态 + 快照缓存，无锁高并发
 - **WASM 插件系统**：WIT component 动态加载，插件可注册 HTTP/SSE、订阅事件、调 host API，运行时热加载
-- **丰富的拓展功能**：PMP相对于原版Phira-mp提供了大量新功能以优化用户与运维体验，详见[功能总览](docs/features.md)与[CLI 手册](docs/cli.md)
+- **丰富的拓展功能**：PMP相对于原版Phira-mp提供了大量新功能以优化用户与运维体验，详见[功能总览](docs/features.html)与[CLI 手册](docs/cli.html)
 
 > [!NOTE]
-> 想深入看实现？见[架构文档](docs/development/architecture.md)。
+> 想深入看实现？见[架构文档](https://docs.phira.htadiy.com/docs/development/architecture.html)。
 
 ## 文档
 
 | 分类 | 文档 |
 |------|------|
-| **功能总览** | [PMP 相对 Phira-mp 新增功能](docs/features.md) |
-| **部署与运维** | [部署/配置/运维](docs/deployment.md) · [配置 JSON Schema](docs/operations/config-schema.json) |
-| **对外 API** | [HTTP/SSE/WS · 插件 API · 能力表 · OpenUDS](docs/api.md) |
-| **CLI 手册** | [CLI 命令参考](docs/cli.md)（含[基准测试](docs/cli.md#基准测试)） |
-| **插件开发** | [插件开发指南](docs/plugin-dev.md)（含 WIT ABI、示例） |
-| **开发** | [架构](docs/development/architecture.md) · [测试指南](docs/development/testing.md) · [CLI 错误码 (EN)](docs/development/error-codes.en.md) |
+| **功能总览** | [PMP 相对 Phira-mp 新增功能](https://docs.phira.htadiy.com/docs/features.html) |
+| **部署与运维** | [部署/配置/运维](https://docs.phira.htadiy.com/docs/deployment.html) · [配置 JSON Schema](https://docs.phira.htadiy.com/docs/operations/config-schema.json) |
+| **对外 API** | [HTTP/SSE/WS · 插件 API · 能力表 · OpenUDS](https://docs.phira.htadiy.com/docs/api.html) |
+| **CLI 手册** | [CLI 命令参考](https://docs.phira.htadiy.com/docs/cli.html)（含[基准测试](https://docs.phira.htadiy.com/docs/cli.html#基准测试)） |
+| **插件开发** | [插件开发指南](https://docs.phira.htadiy.com/docs/plugin-dev.html)（含 WIT ABI、示例） |
+| **开发** | [架构](https://docs.phira.htadiy.com/docs/development/architecture.html) · [测试指南](https://docs.phira.htadiy.com/docs/development/testing.html) · [CLI 错误码 (EN)](https://docs.phira.htadiy.com/docs/development/error-codes.en.html) |
 
 ## 技术栈
 
@@ -194,7 +194,7 @@ PM_DATABASE_URL="postgres://user:pass@host:5432/phira_mp_plus" ./phira-mp-plus-s
 > sudo -u postgres psql -c "CREATE DATABASE phira_mp_plus;"
 > ```
 
-配置加载规则：默认读取 `server_config.yml`，也可通过 `--config <FILE>` 指定；配置文件缺失时使用内置默认值，配置文件存在但格式、字段名或取值无效时拒绝启动。只有用户显式提供的命令行参数才覆盖 YAML，避免 CLI 默认值意外覆盖配置文件。完整说明见 [docs/deployment.md](docs/deployment.md)。
+配置加载规则：默认读取 `server_config.yml`，也可通过 `--config <FILE>` 指定；配置文件缺失时使用内置默认值，配置文件存在但格式、字段名或取值无效时拒绝启动。只有用户显式提供的命令行参数才覆盖 YAML，避免 CLI 默认值意外覆盖配置文件。完整说明见 [docs/deployment.html](https://docs.phira.htadiy.com/docs/deployment.html)。
 
 ### 命令行参数
 
@@ -213,7 +213,7 @@ phira-mp-plus-server [OPTIONS]
   -h, --help                 显示帮助
   -V, --version              显示版本
 
-空载模式仅改变非关键后台活动的调度偏好，不会暂停权威持久化或可靠插件事件。更多配置项见 [docs/deployment.md](docs/deployment.md)。
+空载模式仅改变非关键后台活动的调度偏好，不会暂停权威持久化或可靠插件事件。更多配置项见 [docs/deployment.html](https://docs.phira.htadiy.com/docs/deployment.html)。
 ```
 
 ## 项目结构
