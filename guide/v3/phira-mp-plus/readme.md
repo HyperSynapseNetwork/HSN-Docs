@@ -6,7 +6,7 @@ order: 10
 
 # Phira-mp+
 
-<img src="https://github.com/HyperSynapseNetwork/HSN-Docs/blob/main/guide%2Fv3%2Fphira-mp-plus%2Fdocs%2Flogo%2Fphira-mp-plus-banner.png" width="60%" alt="Phira-mp+ banner" />
+<img src="https://raw.githubusercontent.com/HyperSynapseNetwork/HSN-Docs/refs/heads/main/guide/v3/phira-mp-plus/docs/logo/phira-mp-plus-banner.png" width="60%" alt="Phira-mp+ banner" />
 
 **Phira-mp+（PMP）** — 基于 [phira-mp](https://github.com/HyperSynapseNetwork/phira-mp) 的高性能 Phira 多人游戏服务端 · Rust / WASM 插件 / WAL 先行 / Actor 模型
 
